@@ -29,9 +29,12 @@ export default function Countries() {
   if (error) return <p>Erreur :(</p>;
 
   return (
-    <div>
+    <div className="grid grid-cols-3 gap-4 p-3 m-5">
       {countries.map((country: any) => (
-        <div key={country.id}>
+        <div
+          key={country.id}
+          className="flex justify-center rounded-md border-2 border-stone-300 "
+        >
           <Link href={`/country/${country.code}`}>
             <h1 className="text-2xl ">{country.name}</h1>
             <h2 className="text-base ">{country.continent.name}</h2>
