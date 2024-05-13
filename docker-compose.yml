@@ -1,7 +1,7 @@
 services:
   backend:
     stop_grace_period: 0s
-    build: 
+    build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
@@ -16,10 +16,11 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - WATCHPACK_POLLING=true=value
     stop_grace_period: 0s
-    build: 
+    build:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
       - 3000:3000
     volumes:
       - ./frontend/src:/app/src
+      - ./frontend/package.json:/app/package.json:rw
